@@ -1,7 +1,7 @@
 const {Command} = require('discord.js-commando');
 
 var answers = [
-    'I don\' think so',
+    'I don\'t think so',
     'It is quite possible',
     'No...Just No',
     'Of course',

@@ -12,12 +12,20 @@ module.exports = class ReplyCommand extends Command {
     }
 
     async run(msg) {
+        msg.guild.members.forEach(member => {
+            if(!msg.mentions.users.some(user => user.id==member.id)){
+                member.setDeaf(true).catch(console.error);
+            }
+        });
         msg.mentions.users.forEach(user => {
             msg.say('Come here this city needs you ' + user,{tts : true});
             msg.say('Come here this city needs you ' + user,{tts : true});
             msg.say('Come here this city needs you ' + user,{tts : true});
             msg.say('Come here this city needs you ' + user,{tts : true});
             msg.say('Come here this city needs you ' + user,{tts : true});
+        });
+        msg.guild.members.forEach(member => {
+            member.setDeaf(true);
         });
     }
 };

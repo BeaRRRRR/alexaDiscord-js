@@ -22,6 +22,7 @@
         "opusscript": "0.0.6",
         "random-puppy": "^1.1.0",
         "snekfetch": "^4.0.4",
+        "soundcloud": "^3.3.0",
         "urban": "^0.3.2",
         "ytdl-core": "^0.25.2"
     }
