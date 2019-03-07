@@ -1,4 +1,5 @@
 const {Command} = require("discord.js-commando");
+const {RichEmbed} = require("discord.js");
 const ytdl = require("ytdl-core");
 
 module.exports = class StopCommand extends Command {
@@ -20,18 +21,24 @@ module.exports = class StopCommand extends Command {
       let server = global.servers[msg.guild.id];
       let queue = server.queue;
       console.log(queue);
-      for (const entry of queue) {
-        const info = await ytdl.getInfo()
-        queueList += `${queue.indexOf(entry) + 1}. ${info.title} (${info.length_seconds}) \n`;
+      let searchFromIndex = 0;
+      let embed = new RichEmbed()
+        .setTitle('Queue')
+        .addField('Now playing', `[${(await ytdl.getInfo(queue[0])).title}](${queue[0]})`);
+      for (let i = 1; i < queue.length;i++) {
+        let entry = queue[i];
+        const info = await ytdl.getInfo(entry);
+        queueList += `${i + 1}. [${info.title}](${entry})  [${info.length_seconds}] \n`;
+        searchFromIndex++;
       }
+      embed.addField('Now Playing',queueList);
       /*      await queue.forEach(async e => {*/
       //console.log(e);
       //let info = await ytdl.getInfo(e);
       //queueList =
       //queueList + `${queue.indexOf(e) + 1}. ${e} (${info.length_seconds})`;
       /*});*/
-      console.log(queueList);
-      msg.reply(`:musical_note: Current queue :musical_note: ${queueList}`);
+      msg.reply(embed);
     } else msg.reply("You have to join a voice channel first");
   }
 };

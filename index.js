@@ -32,4 +32,4 @@ client.on("ready", () => {
     .catch(console.error);
 });
 
-client.login("");
+client.login("NDc4ODcyODI4ODA5MzE0MzE0.D2GCLw.tc-iJVsDyVINQJR2Il1TTklrkYs");

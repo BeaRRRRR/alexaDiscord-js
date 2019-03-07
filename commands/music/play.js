@@ -1,6 +1,7 @@
-const { Command } = require("discord.js-commando");
-const { RichEmbed } = require("discord.js");
+const {Command} = require("discord.js-commando");
+const {RichEmbed} = require("discord.js");
 const ytdl = require("ytdl-core");
+const ytSerch = require('yt-search');
 const fetch = require("node-fetch");
 global.servers = {};
 
@@ -11,7 +12,6 @@ async function getUrl(query) {
       .split(" ")
       .join("+")}&type=video&key=AIzaSyDMXoEk9eUXOFccZTut5tOKD_IP1duXMBw`
   );
-  console.log(response);
   let json = await response.json();
   console.log(json);
   return `https://www.youtube.com/watch?v=${json.items[0].id.videoId}`;
@@ -29,7 +29,7 @@ async function play(connection, msg) {
       filter: "audioonly"
     })
   );
-  server.dispatcher.on("end", function() {
+  server.dispatcher.on("end", function () {
     queue.shift();
     console.log(server.queue + "in end");
     if (queue[0]) {
@@ -93,7 +93,7 @@ module.exports = class PlayCommand extends Command {
     });
   }
 
-  async run(msg, { url }) {
+  async run(msg, {url}) {
     url = await getUrl(url);
     console.log("url is " + url);
     if (!msg.guild) return;
