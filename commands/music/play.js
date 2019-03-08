@@ -10,7 +10,7 @@ async function getUrl(query) {
   let response = await fetch(
     `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query
       .split(" ")
-      .join("+")}&type=video&key=AIzaSyDMXoEk9eUXOFccZTut5tOKD_IP1duXMBw`
+      .join("+")}&type=video&key=your youtube data api v3 key`
   );
   let json = await response.json();
   console.log(json);
