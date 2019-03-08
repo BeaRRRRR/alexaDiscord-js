@@ -11,7 +11,7 @@ module.exports = class StopCommand extends Command {
             name: 'stopwatch',
             group: 'stuff',
             memberName: 'stopwatch',
-            description: 'Searches a worlds definition in urban dictionary',
+            description: 'Stopwatch',
             examples: ['!stopwatch'],
         });
     }
