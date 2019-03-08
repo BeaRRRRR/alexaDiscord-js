@@ -1,14 +1,14 @@
-const { Command } = require("discord.js-commando");
-const { RichEmbed } = require("discord.js");
+const { Command } = require('discord.js-commando');
+const { RichEmbed } = require('discord.js');
 
 module.exports = class StopCommand extends Command {
   constructor(client) {
     super(client, {
-      name: "resume",
-      group: "music",
-      memberName: "resume",
-      description: "Resume a paused song",
-      examples: ["!pause"]
+      name: 'resume',
+      group: 'music',
+      memberName: 'resume',
+      description: 'Resume a paused song',
+      examples: ['!resume']
     });
   }
 
@@ -17,6 +17,6 @@ module.exports = class StopCommand extends Command {
 
     if (msg.member.voiceChannel) {
       msg.member.voiceChannel.connection.player.dispatcher.resume();
-    } else msg.reply("You have to join a voice channel first");
+    } else msg.reply('You have to join a voice channel first');
   }
 };

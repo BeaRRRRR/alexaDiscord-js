@@ -86,7 +86,7 @@ module.exports = class PlayCommand extends Command {
       args: [
         {
           key: "url",
-          prompt: "A YouTube url to play the sound from",
+          prompt: "A YouTube url to play the sound from or name of the video",
           type: "string"
         }
       ]
@@ -140,13 +140,13 @@ module.exports = class PlayCommand extends Command {
               .addField(`:thumbsup: / :thumbsdown: `, info.avg_rating * 2, true)
               .addField(`:eye:`, info.view_count, true)
               .setFooter(
-                `Requested by ${msg.author.discriminator}`,
+                `Requested by ${msg.author.username}`,
                 msg.author.displayAvatarURL
               );
             msg.say(embed);
           }
         })
         .catch(console.error);
-    } else msg.reply("You have to join a voice channel first");
+    } else msg.reply('You have to join a voice channel first');
   }
 };

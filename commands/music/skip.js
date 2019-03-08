@@ -5,11 +5,11 @@ const { RichEmbed } = require("discord.js");
 module.exports = class StopCommand extends Command {
   constructor(client) {
     super(client, {
-      name: "skip",
-      group: "music",
-      memberName: "skip",
-      description: "Skips to next song in queue",
-      examples: ["!pause"]
+      name: 'skip',
+      group: 'music',
+      memberName: 'skip',
+      description: 'Skips to next song in queue',
+      examples: ['!skip']
     });
   }
 
@@ -18,8 +18,8 @@ module.exports = class StopCommand extends Command {
 
     if (msg.member.voiceChannel) {
       let server = servers[msg.guild.id];
-      msg.say("Skipped 1");
+      msg.say('Skipped 1');
       if (server.dispatcher) server.dispatcher.end();
-    } else msg.reply("You have to join a voice channel first");
+    } else msg.reply('You have to join a voice channel first');
   }
 };
