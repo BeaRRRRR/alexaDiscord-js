@@ -27,7 +27,7 @@ module.exports = class SearchCommand extends Command {
       let response = await fetch(
         `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${query
           .split(" ")
-          .join("+")}&type=video&key=AIzaSyDMXoEk9eUXOFccZTut5tOKD_IP1duXMBw`
+          .join("+")}&type=video&key=your youtube data api v3 key`
       );
       let json = await response.json();
       let videos = json.items;

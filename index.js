@@ -32,4 +32,4 @@ client.on('ready', () => {
     .catch(console.error);
 });
 
-client.login('NDc4ODcyODI4ODA5MzE0MzE0.D2GCLw.tc-iJVsDyVINQJR2Il1TTklrkYs');
+client.login('token'); //you can obtain this token at https://discordapp.com/developers/applications/<your client id>/bots
